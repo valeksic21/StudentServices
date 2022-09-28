@@ -51,6 +51,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="MusicDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -70,6 +85,9 @@
     <Compile Include="Students.cs">
       <DependentUpon>StudentDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_track_list_extended.cs">
+      <DependentUpon>MusicDataModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="StudentDataModel.edmx">
@@ -79,12 +97,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="MusicDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MusicDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MusicDataModel.edmx.diagram">
+      <DependentUpon>MusicDataModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="StudentDataModel.edmx.diagram">
       <DependentUpon>StudentDataModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MusicDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MusicDataModel.edmx</DependentUpon>
+      <LastGenOutput>MusicDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MusicDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MusicDataModel.edmx</DependentUpon>
+      <LastGenOutput>MusicDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="StudentDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StudentDataModel.Context.cs</LastGenOutput>

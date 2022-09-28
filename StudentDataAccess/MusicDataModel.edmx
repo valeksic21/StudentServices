@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'music.dbo.v_track_list_extended' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_track_list_extended">
+          <Key>
+            <PropertyRef Name="TrackId" />
+            <PropertyRef Name="Track" />
+            <PropertyRef Name="Album" />
+            <PropertyRef Name="MediaTypeId" />
+            <PropertyRef Name="Milliseconds" />
+          </Key>
+          <Property Name="TrackId" Type="int" Nullable="false" />
+          <Property Name="Track" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="AlbumId" Type="int" />
+          <Property Name="Artist" Type="nvarchar" MaxLength="120" />
+          <Property Name="Album" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="MediaTypeId" Type="int" Nullable="false" />
+          <Property Name="MediaType" Type="nvarchar" MaxLength="120" />
+          <Property Name="GenreId" Type="int" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="120" />
+          <Property Name="Composer" Type="nvarchar" MaxLength="220" />
+          <Property Name="Milliseconds" Type="int" Nullable="false" />
+          <Property Name="Bytes" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MusicDataModelStoreContainer">
+          <EntitySet Name="v_track_list_extended" EntityType="Self.v_track_list_extended" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_track_list_extended].[TrackId] AS [TrackId], 
+    [v_track_list_extended].[Track] AS [Track], 
+    [v_track_list_extended].[AlbumId] AS [AlbumId], 
+    [v_track_list_extended].[Artist] AS [Artist], 
+    [v_track_list_extended].[Album] AS [Album], 
+    [v_track_list_extended].[MediaTypeId] AS [MediaTypeId], 
+    [v_track_list_extended].[MediaType] AS [MediaType], 
+    [v_track_list_extended].[GenreId] AS [GenreId], 
+    [v_track_list_extended].[Genre] AS [Genre], 
+    [v_track_list_extended].[Composer] AS [Composer], 
+    [v_track_list_extended].[Milliseconds] AS [Milliseconds], 
+    [v_track_list_extended].[Bytes] AS [Bytes]
+    FROM [dbo].[v_track_list_extended] AS [v_track_list_extended]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="v_track_list_extended">
+          <Key>
+            <PropertyRef Name="TrackId" />
+            <PropertyRef Name="Track" />
+            <PropertyRef Name="Album" />
+            <PropertyRef Name="MediaTypeId" />
+            <PropertyRef Name="Milliseconds" />
+          </Key>
+          <Property Name="TrackId" Type="Int32" Nullable="false" />
+          <Property Name="Track" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlbumId" Type="Int32" />
+          <Property Name="Album" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MediaTypeId" Type="Int32" Nullable="false" />
+          <Property Name="MediaType" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="GenreId" Type="Int32" />
+          <Property Name="Genre" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Composer" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Milliseconds" Type="Int32" Nullable="false" />
+          <Property Name="Bytes" Type="Int32" />
+          <Property Name="Artist" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="v_track_list_extended" EntityType="Self.v_track_list_extended" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicDataModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="v_track_list_extended">
+            <EntityTypeMapping TypeName="MusicDataModel.v_track_list_extended">
+              <MappingFragment StoreEntitySet="v_track_list_extended">
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="Track" ColumnName="Track" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
+                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Composer" ColumnName="Composer" />
+                <ScalarProperty Name="Milliseconds" ColumnName="Milliseconds" />
+                <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
