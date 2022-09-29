@@ -18,17 +18,23 @@ namespace StudentServices.Controllers
                         return entities.v_track_list_extended.ToList();
                     }
                 }
-        
 
-
-        // GET: api/Music/5
-        public v_track_list_extended Get(string p_Track, string p_Artist)
+        public IEnumerable<v_track_list_extended> Get(string p_Track, string p_Artist)
         {
             using (Entities entities = new Entities())
             {
-                return entities.v_track_list_extended.FirstOrDefault(e => e.Track.Contains(p_Track) && e.Artist.Contains(p_Artist) );
+                return entities.v_track_list_extended.ToList().FindAll(e => e.Track.Contains(p_Track) && e.Artist.Contains(p_Artist));
             }
         }
+
+        // GET: api/Music/5
+     //   public v_track_list_extended Get(string p_Track, string p_Artist)
+       // {
+         //   using (Entities entities = new Entities())
+           // {
+             //   return entities.v_track_list_extended.FirstOrDefault(e => e.Track.Contains(p_Track) && e.Artist.Contains(p_Artist));
+            //}
+        //}
 
 
 
